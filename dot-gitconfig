@@ -1,0 +1,26 @@
+[user]
+    email = wenshengwang@gmail.com
+    name = Wensheng Wang
+
+[alias]
+    ci = commit
+    co = checkout
+    cm = commit -m
+    ca = commit --amend
+    st = status
+    br = branch
+    ls = log --oneline
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    # amend the last commit with everything uncommitted and new
+    caa = commit -a --amend -C HEAD
+    # see https://bitbucket.org/durdn/cfg/src/master/.gitconfig?at=master for more
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan

@@ -1,0 +1,10 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+set ts=4 shiftwidth=4 expandtab
+map <C-n> :NERDTreeToggle<CR>
+" open NERDTree automatically when no files were specified when starting Vim
+autocmd vimenter * if !argc() | NERDTree | endif
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+colorscheme torte
