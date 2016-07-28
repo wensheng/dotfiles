@@ -12,11 +12,14 @@ for line in bundle_list:
     else:
         os.system("git clone %s dot-vim/bundle/%s" % (item[0], item[1]))
 
-dotfiles=['bashrc', 'vimrc', 'gitconfig', 'hgrc', 'vim']
+dotfiles=['bashrc', 'vimrc', 'gitconfig', 'hgrc', 'dircolors', 'vim']
 
 home = os.environ['HOME']
 for dotfile in dotfiles:
     dst_file = "%s/.%s" % (os.environ['HOME'], dotfile)
-    if os.path.exists(dst_file) and not os.path.islink(dst_file):
-        os.rename(dst_file, "%s.bk" % dst_file)
+    if os.path.exists(dst_file):
+        if not os.path.islink(dst_file):
+            os.rename(dst_file, "%s.bk" % dst_file)
+        else:
+            continue
     os.symlink("%s/dot-%s" % (cur_dir, dotfile), dst_file)
