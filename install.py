@@ -12,7 +12,14 @@ for line in bundle_list:
     else:
         os.system("git clone %s dot-vim/bundle/%s" % (item[0], item[1]))
 
-dotfiles=['bashrc', 'vimrc', 'gitconfig', 'hgrc', 'dircolors', 'vim']
+dotfiles=[
+    'bashrc',
+    'vimrc',
+    'gitconfig',
+    'hgrc',
+    'dircolors',
+    'tmux.conf',
+    'vim']
 
 home = os.environ['HOME']
 for dotfile in dotfiles:
