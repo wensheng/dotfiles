@@ -1,0 +1,8 @@
+[ui]
+username = wensheng
+verbose = True
+
+[extensions]
+hgext.convert =
+color =
+graphlog =
