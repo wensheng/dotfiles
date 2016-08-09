@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+# make sure terminfo for putty exists
+# ls /usr/share/terminfo/p
+# if not:
+#     sudo apt-get install ncurses-term
+
 import os
 
 cur_dir = os.path.abspath(os.path.dirname(__file__))
