@@ -32,7 +32,7 @@ shopt -s checkwinsize
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|xterm-256color|putty-256color|screen-256color|screen) color_prompt=yes;;
+    xterm-color|xterm-256color|putty-256color|screen-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -71,11 +71,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -85,8 +80,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases_common ]; then
+    . ~/.aliases_common
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -105,6 +100,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+export LD_LIBRARY_PATH=/usr/local/lib
 export EDITOR=vi
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8

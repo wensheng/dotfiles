@@ -1,0 +1,6 @@
+alias l='ls -CF'
+alias ll='ls -lFrt'
+alias la='ls -AlFrt'
+alias t=tasksh
+alias tl='task list'
+alias ta='task add'

@@ -19,6 +19,7 @@ for line in bundle_list:
 
 dotfiles=[
     'bashrc',
+    'aliases_common',
     'vimrc',
     'gitconfig',
     'hgrc',
