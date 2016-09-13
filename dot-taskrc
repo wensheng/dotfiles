@@ -17,7 +17,7 @@ data.location=~/.task
 #include /usr/local/share/doc/task/rc/light-16.theme
 #include /usr/local/share/doc/task/rc/light-256.theme
 #include /usr/local/share/doc/task/rc/dark-16.theme
-include /usr/local/share/doc/task/rc/dark-256.theme
+#include /usr/local/share/doc/task/rc/dark-256.theme
 #include /usr/local/share/doc/task/rc/dark-red-256.theme
 #include /usr/local/share/doc/task/rc/dark-green-256.theme
 #include /usr/local/share/doc/task/rc/dark-blue-256.theme
@@ -34,6 +34,7 @@ taskd.key=\/home\/wensheng\/.task\/wensheng_wang.key.pem
 taskd.ca=\/home\/wensheng\/.task\/ca.cert.pem
 taskd.server=
 taskd.credentials=
+# taskd.trust=ignore hostname
 uda.priority.values=U,H,M,L,
 color.uda.priority.U=color9
 color.uda.priority.H=color3
@@ -44,3 +45,4 @@ report._reviewed.description=Tasksh review report.  Adjust the filter to your ne
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-1week ) and ( +PENDING or +WAITING )
+report.next.filter=(status:pending limit:20)
