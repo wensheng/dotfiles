@@ -1,0 +1,5 @@
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/auth/%r@%h:%p
+    ControlPersist 600
+    StrictHostKeyChecking no
