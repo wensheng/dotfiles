@@ -8,4 +8,5 @@ alias tl='task list'
 alias tn='task next'
 #alias top='htop'
 alias free='free -m'
+alias df='df -HT'
 
