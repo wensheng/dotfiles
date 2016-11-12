@@ -9,4 +9,5 @@ alias tn='task next'
 #alias top='htop'
 alias free='free -m'
 alias df='df -HT'
+alias rw='tmux rename-window'
 
