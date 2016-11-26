@@ -10,4 +10,6 @@ alias tn='task next'
 alias free='free -m'
 alias df='df -HT'
 alias rw='tmux rename-window'
+alias vo='vim -o'
+alias vO='vim -O'
 
