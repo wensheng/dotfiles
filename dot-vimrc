@@ -8,3 +8,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 colorscheme torte
+" disable vim-markdown folding
+let g:vim_markdown_folding_disabled = 1
+" disable vim-markdown key mapping, i just need highlighting
+let g:vim_markdown_no_default_key_mappings = 1
