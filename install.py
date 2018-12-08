@@ -6,8 +6,13 @@
 #     sudo apt-get install ncurses-term
 
 import os
+import shutil
 
 cur_dir = os.path.abspath(os.path.dirname(__file__))
+
+# oh-my-zsh
+os.system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+shutil.copy("%s/wensheng.zsh-theme" % cur_dir, "%s/.oh-my-zsh/themes/" % os.environ['HOME'])
 
 bundle_list = open("dot-vim/bundle/README.md")
 for line in bundle_list:
@@ -19,6 +24,7 @@ for line in bundle_list:
 
 dotfiles=[
     'bashrc',
+    'zshrc',
     'aliases_common',
     'vimrc',
     'gitconfig',
