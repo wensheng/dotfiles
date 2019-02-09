@@ -4,10 +4,12 @@ CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 plugins=(
-  git
+  gitfast
   python
   tmux
   z
 )
 source $ZSH/oh-my-zsh.sh
+export PATH=$HOME/.local/bin:$PATH
+unsetopt no_match
 source ~/.aliases_common
