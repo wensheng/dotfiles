@@ -12,4 +12,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:$PATH
 unsetopt no_match
+bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history
 source ~/.aliases_common
