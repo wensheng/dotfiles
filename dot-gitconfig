@@ -18,6 +18,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	# amend the last commit with everything uncommitted and new
 	caa = commit -a --amend -C HEAD
+    ru = config --get remote.origin.url
 
 [color]
 	branch = auto
