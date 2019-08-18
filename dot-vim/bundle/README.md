@@ -6,3 +6,4 @@ https://github.com/othree/html5.vim.git html5.vim
 https://github.com/vimwiki/vimwiki vimwiki
 https://github.com/wincent/command-t.git command-t
 https://github.com/posva/vim-vue.git vim-vue
+https://github.com/elixir-lang/vim-elixir.git vim-elixir
