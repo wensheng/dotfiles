@@ -10,7 +10,6 @@ plugins=(
   z
 )
 source $ZSH/oh-my-zsh.sh
-export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
 export GOPATH=$HOME/go
 unsetopt no_match
 bindkey -v

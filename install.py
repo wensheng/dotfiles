@@ -25,6 +25,7 @@ for line in bundle_list:
 dotfiles=[
     'bashrc',
     'zshrc',
+    'zprofile',
     'aliases_common',
     'vimrc',
     'gitconfig',
