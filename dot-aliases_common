@@ -1,5 +1,4 @@
 alias a=alias
-alias dir='ls -lrt --color'
 alias h='history'
 alias l='ls -CF'
 alias ll='ls -lFrt'
