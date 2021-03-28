@@ -28,6 +28,7 @@ dotfiles=[
     'zprofile',
     'aliases_common',
     'aliases_mac',
+    'aliases_linux',
     'vimrc',
     'gitconfig',
     'hgrc',

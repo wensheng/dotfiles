@@ -1,4 +1,8 @@
-export ZSH="/Users/wensheng/.oh-my-zsh"
+if [[ $OSTYPE == linux* ]]; then
+  export ZSH="/home/wensheng/.oh-my-zsh"
+else
+  export ZSH="/Users/wensheng/.oh-my-zsh"
+fi
 ZSH_THEME="wensheng"
 CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -8,6 +12,7 @@ plugins=(
   python
   tmux
   z
+  zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
@@ -18,12 +23,9 @@ bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
 setopt nosharehistory
 source ~/.aliases_common
-case `uname` in
-    Darwin)
-        source ~/.aliases_mac
-    ;;
-    Linux)
+if [[ $OSTYPE == linux* ]]; then
         source ~/.aliases_linux
-    ;;
-esac
+else
+        source ~/.aliases_mac
+fi
 
