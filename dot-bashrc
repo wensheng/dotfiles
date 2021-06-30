@@ -110,3 +110,4 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export NCURSES_NO_UTF8_ACS=1
 export PATH="/home/wensheng/anaconda3/bin:$PATH"
+source "$HOME/.cargo/env"
