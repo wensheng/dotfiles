@@ -45,3 +45,6 @@ for dotfile in dotfiles:
         else:
             continue
     os.symlink("%s/dot-%s" % (cur_dir, dotfile), dst_file)
+
+os.system("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
+
