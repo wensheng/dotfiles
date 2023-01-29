@@ -24,8 +24,9 @@ bindkey "^N" vi-down-line-or-history
 setopt nosharehistory
 source ~/.aliases_common
 if [[ $OSTYPE == linux* ]]; then
-        source ~/.aliases_linux
+        source ~/.sh_linux
 else
-        source ~/.aliases_mac
+        source ~/.sh_mac
 fi
-
+export MAVEN_HOME=/opt/apache-maven-3.8.5
+export PATH=$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$HOME/.volta/bin:$PATH

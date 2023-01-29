@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # make sure terminfo for putty exists
 # ls /usr/share/terminfo/p
@@ -27,8 +27,8 @@ dotfiles=[
     'zshrc',
     'zprofile',
     'aliases_common',
-    'aliases_mac',
-    'aliases_linux',
+    'sh_mac',
+    'sh_linux',
     'vimrc',
     'gitconfig',
     'hgrc',

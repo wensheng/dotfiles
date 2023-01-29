@@ -10,3 +10,4 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
 " use instead of default ~/vimwiki
 let g:vimwiki_list = [{'path':'~/ownCloud/wiki'}]
+set pastetoggle=<F2>
