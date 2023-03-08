@@ -6,3 +6,4 @@ verbose = True
 hgext.convert =
 color =
 graphlog =
+convert =

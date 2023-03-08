@@ -8,9 +8,11 @@ plugins=(
   python
   tmux
   z
+  zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
+#export PATH=$HOME/.local/bin:$PATH
 unsetopt no_match
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
@@ -18,3 +20,5 @@ bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
 setopt nosharehistory
 source ~/.aliases_common
+
+export PATH="$HOME/.poetry/bin:$PATH"
