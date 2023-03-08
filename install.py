@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # make sure terminfo for putty exists
 # ls /usr/share/terminfo/p
@@ -27,6 +27,8 @@ dotfiles=[
     'zshrc',
     'zprofile',
     'aliases_common',
+    'sh_mac',
+    'sh_linux',
     'vimrc',
     'gitconfig',
     'hgrc',
@@ -43,3 +45,6 @@ for dotfile in dotfiles:
         else:
             continue
     os.symlink("%s/dot-%s" % (cur_dir, dotfile), dst_file)
+
+os.system("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
+

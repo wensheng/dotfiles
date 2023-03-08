@@ -1,5 +1,4 @@
 alias a=alias
-alias dir='ls -lrt --color'
 alias h='history'
 alias l='ls -CF'
 alias ll='ls -lFrt'
@@ -9,7 +8,6 @@ alias tl='task list'
 alias tn='task next'
 #alias top='htop'
 alias free='free -m'
-alias df='df -HT'
 alias rw='tmux rename-window'
 alias vo='vim -o'
 alias vO='vim -O'

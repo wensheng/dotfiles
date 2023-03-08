@@ -1,0 +1,2 @@
+alias dir='ls -lrtG'
+alias df='df -H'

@@ -1,4 +1,8 @@
-export ZSH="/home/wensheng/.oh-my-zsh"
+if [[ $OSTYPE == linux* ]]; then
+  export ZSH="/home/wensheng/.oh-my-zsh"
+else
+  export ZSH="/Users/wensheng/.oh-my-zsh"
+fi
 ZSH_THEME="wensheng"
 CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -20,5 +24,10 @@ bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
 setopt nosharehistory
 source ~/.aliases_common
-
-export PATH="$HOME/.poetry/bin:$PATH"
+if [[ $OSTYPE == linux* ]]; then
+        source ~/.sh_linux
+else
+        source ~/.sh_mac
+fi
+export MAVEN_HOME=/opt/apache-maven-3.8.5
+export PATH=$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$HOME/.volta/bin:$PATH
