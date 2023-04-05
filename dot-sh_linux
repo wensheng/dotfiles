@@ -1,3 +1,4 @@
 alias dir='ls -lrt'
 alias df='df -HT'
+alias vi='lvim'
 
