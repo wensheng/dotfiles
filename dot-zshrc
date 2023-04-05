@@ -16,6 +16,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
+#export PATH=$HOME/.local/bin:$PATH
 unsetopt no_match
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
