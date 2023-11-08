@@ -42,3 +42,7 @@
 	smudge = git-lfs smudge -- %f
 [gc]
 	auto = 0
+[credential]
+	helper = store
+[init]
+	defaultBranch = master
