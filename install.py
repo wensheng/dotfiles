@@ -14,6 +14,8 @@ cur_dir = os.path.abspath(os.path.dirname(__file__))
 os.system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
 shutil.copy("%s/wensheng.zsh-theme" % cur_dir, "%s/.oh-my-zsh/themes/" % os.environ['HOME'])
 
+home = os.getenv('HOME', '/home/wensheng')
+
 bundle_list = open("dot-vim/bundle/README.md")
 for line in bundle_list:
     item = line.strip().split()
@@ -36,15 +38,28 @@ dotfiles=[
     'tmux.conf',
     'vim']
 
-home = os.environ['HOME']
 for dotfile in dotfiles:
-    dst_file = "%s/.%s" % (os.environ['HOME'], dotfile)
+    dst_file = "%s/.%s" % (home, dotfile)
     if os.path.exists(dst_file):
         if not os.path.islink(dst_file):
             os.rename(dst_file, "%s.bk" % dst_file)
         else:
             continue
     os.symlink("%s/dot-%s" % (cur_dir, dotfile), dst_file)
+
+dotconfigs = [
+  'lvim',
+  'kitty',
+]
+
+for dotconfig in dotconfigs:
+    dst_dir = f'{home}/.config/{dotconfig}'
+    if os.path.exists(dst_dir):
+        if os.path.islink(dst_dir):
+            continue
+        os.rename(dst_dir, f"{dst_dir}.bk")
+    os.symlink(f'{cur_dir}/dot-config/{dotconfig}', dst_dir)
+
 
 os.system("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
 
