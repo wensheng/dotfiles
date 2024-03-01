@@ -66,7 +66,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -111,6 +111,21 @@ lvim.builtin.treesitter.highlight.enable = true
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
+require("lvim.lsp.manager").setup("tsserver")
+require("lvim.lsp.manager").setup("eslint")
+-- require("lvim.lsp.manager").setup("pyright")
+require("lvim.lsp.manager").setup("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        black = { enabled = true, line_length = 120 },
+        pycodestyle = { maxLineLength = 120 },
+        flake8 = { maxLineLength = 120 }
+      }
+    }
+  }
+})
+-- require("lvim.lsp.manager").setup("ruff_lsp")
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -144,23 +159,23 @@ lvim.builtin.treesitter.highlight.enable = true
 --   },
 -- }
 
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+-- set additional linters
+--local linters = require "lvim.lsp.null-ls.linters"
+--linters.setup {
+--  { command = "flake8", filetypes = { "python" } },
+--  -- {
+--  --   -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--  --   command = "shellcheck",
+--  --   ---@usage arguments to pass to the formatter
+--  --   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--  --   extra_args = { "--severity", "warning" },
+--  -- },
+--  {
+--    command = "codespell",
+--    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--    filetypes = { "javascript", "python" },
+--  },
+--}
 
 -- Additional Plugins
 lvim.plugins = {
@@ -169,7 +184,7 @@ lvim.plugins = {
     },
     {
       "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
+      dependencies = "nvim-lua/plenary.nvim",
       config = function()
         require("todo-comments").setup {
         -- your configuration comes here
@@ -178,6 +193,14 @@ lvim.plugins = {
         }
       end
     },
+    {
+      "kdheepak/lazygit.nvim",
+      -- optional for floating window border decoration
+      dependencies = { "nvim-lua/plenary.nvim", },
+    },
+    {
+      "sindrets/diffview.nvim",
+    }
 }
 
 vim.g.copilot_no_tab_map = true

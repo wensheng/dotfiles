@@ -11,5 +11,7 @@ alias free='free -m'
 alias rw='tmux rename-window'
 alias vo='vim -o'
 alias vO='vim -O'
-alias sconda='. "/home/wensheng/anaconda3/etc/profile.d/conda.sh";CONDA_CHANGEPS1=false conda activate base'
+alias s='git status'
 alias jn='pass edit journal/$(date "+%Y-%m-%d")'
+alias pg='pygmentize -O style=one-dark -f terminal256'
+alias lv=lvim
