@@ -68,6 +68,10 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
+-- status line, default or lvim, or none
+-- lvim.builtin.lualine.style = 'default'
+lvim.builtin.lualine.sections.lualine_c = { {'filename', path=1} }
+
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -224,6 +228,9 @@ end
 
 lvim.builtin.project.manual_mode = true
 
+--vim.api.nvim_create_autocmd("BufDelete", {
+-- --autocmd BufDelete * if bufname('%') == '' && bufwinnr(1) > 1 | bnext | endif
+--})
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
@@ -237,3 +244,4 @@ lvim.builtin.project.manual_mode = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
