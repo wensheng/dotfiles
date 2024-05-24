@@ -1,2 +1,8 @@
+# libpq is keg-only and not symlinked into /usr/local because it has conflict with postgres
+export PATH="/usr/local/opt/libpq/bin:/usr/local/opt/neovim/bin:/usr/local/opt/mysql-client/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/libpq/lib"
+# export CPPFLAGS="-I/usr/local/opt/libpq/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias dir='ls -lrtG'
 alias df='df -H'
