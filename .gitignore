@@ -1,3 +1,4 @@
 dot-vim/bundle/*/
 dot-vim/.netrwhist
 taskkeys/
+lazy-lock.json
