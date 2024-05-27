@@ -8,17 +8,26 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
+-- in ~/.local/lunarvim/lvim/lua/lvim/config/settings.lua, there is:
+--   vim.opt.whichwrap:append "<,>,[,],h,l"
+-- when I at the end of line and press l, it goes to the next line.
+-- Or when empty line and press x, it delete the line
+-- Or when I use 99x instead of d$ to delete till the end of line, it delete next few lines
+-- these behaviors are so stupid/annoying
+-- reset it so it behaves like normal vim:
+vim.opt.whichwrap = ""
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -108,7 +117,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
+lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -117,6 +126,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- require("lvim.lsp.manager").setup("pyright", opts)
 require("lvim.lsp.manager").setup("tsserver")
 require("lvim.lsp.manager").setup("eslint")
+-- will not use pyright because it has no linter plugin
 -- require("lvim.lsp.manager").setup("pyright")
 require("lvim.lsp.manager").setup("pylsp", {
   settings = {
@@ -124,11 +134,40 @@ require("lvim.lsp.manager").setup("pylsp", {
       plugins = {
         black = { enabled = true, line_length = 120 },
         pycodestyle = { maxLineLength = 120 },
+        pylint = { enabled = true, },
+        pyflakes = { enabled = false, },
         flake8 = { maxLineLength = 120 }
       }
     }
   }
 })
+
+-- local lspconfig = require('lspconfig')
+-- lspconfig.pylsp.setup {
+-- 	settings = {
+-- 		pylsp = {
+-- 			plugins = {
+-- 				pylint = { enabled = true },
+-- 				pycodestyle = { enabled = false },
+-- 			}
+-- 		}
+-- 	}
+-- }
+
+-- require("lvim.lsp.manager").setup("pylsp", {
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         flake8 = { enabled = false },
+--         pylint = { enabled = true },
+--         black = { enabled = false, line_length = 120 },
+--         pyflake = { enabled = false },
+--         pycodestyle = { enabled = false },
+--       }
+--     }
+--   }
+-- })
+
 -- require("lvim.lsp.manager").setup("ruff_lsp")
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
@@ -186,16 +225,24 @@ lvim.plugins = {
     {
       "github/copilot.vim",
     },
+    -- {
+    --   "folke/todo-comments.nvim",
+    --  dependencies = "nvim-lua/plenary.nvim",
+    --  config = function()
+    --    require("todo-comments").setup {
+    --    -- your configuration comes here
+    --    -- or leave it empty to use the default settings
+    --    -- refer to the configuration section below
+    --    }
+    --  end
+    -- },
     {
-      "folke/todo-comments.nvim",
-      dependencies = "nvim-lua/plenary.nvim",
-      config = function()
-        require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-        }
-      end
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+    },
+    {
+      "ibhagwan/fzf-lua",
     },
     {
       "kdheepak/lazygit.nvim",
@@ -206,6 +253,7 @@ lvim.plugins = {
       "sindrets/diffview.nvim",
     }
 }
+
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
@@ -244,4 +292,3 @@ lvim.builtin.project.manual_mode = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-

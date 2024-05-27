@@ -47,6 +47,8 @@ for dotfile in dotfiles:
             continue
     os.symlink("%s/dot-%s" % (cur_dir, dotfile), dst_file)
 
+# os.symlink(f'{cur_dir}/dot-config/lvim/config.lua', f'{os.getenv("HOME")}/.config/lvim/config.lua')
+
 dotconfigs = [
   'lvim',
   'kitty',
@@ -59,7 +61,6 @@ for dotconfig in dotconfigs:
             continue
         os.rename(dst_dir, f"{dst_dir}.bk")
     os.symlink(f'{cur_dir}/dot-config/{dotconfig}', dst_dir)
-
 
 os.system("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
 
