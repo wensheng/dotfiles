@@ -222,36 +222,55 @@ require("lvim.lsp.manager").setup("pylsp", {
 
 -- Additional Plugins
 lvim.plugins = {
-    {
-      "github/copilot.vim",
+  {
+    "github/copilot.vim",
+  },
+  -- {
+  --   "folke/todo-comments.nvim",
+  --  dependencies = "nvim-lua/plenary.nvim",
+  --  config = function()
+  --    require("todo-comments").setup {
+  --    -- your configuration comes here
+  --    -- or leave it empty to use the default settings
+  --    -- refer to the configuration section below
+  --    }
+  --  end
+  -- },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "ibhagwan/fzf-lua",
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    dependencies = { "nvim-lua/plenary.nvim", },
+  },
+  {
+    "sindrets/diffview.nvim",
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig", 
+      "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
     },
-    -- {
-    --   "folke/todo-comments.nvim",
-    --  dependencies = "nvim-lua/plenary.nvim",
-    --  config = function()
-    --    require("todo-comments").setup {
-    --    -- your configuration comes here
-    --    -- or leave it empty to use the default settings
-    --    -- refer to the configuration section below
-    --    }
-    --  end
-    -- },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-    },
-    {
-      "ibhagwan/fzf-lua",
-    },
-    {
-      "kdheepak/lazygit.nvim",
-      -- optional for floating window border decoration
-      dependencies = { "nvim-lua/plenary.nvim", },
-    },
-    {
-      "sindrets/diffview.nvim",
-    }
+    lazy = false,
+    branch = "regexp", -- This is the regexp branch, use this for the new version
+    config = function()
+        require("venv-selector").setup()
+      end,
+      keys = {
+        { ",v", "<cmd>VenvSelect<cr>" },
+      },
+  },
+  {
+    "Olical/conjure",
+  }
 }
 
 
@@ -262,16 +281,15 @@ local cmp = require "cmp"
 
 lvim.builtin.cmp.mapping["<Tab>"] = function(fallback)
   -- remove cmp for tab, can still use <C-n> and <C-p> and arrow keys
-  --if cmp.visible() then
-  --  cmp.select_next_item()
-  --else
+  -- if cmp.visible() then
+    -- cmp.select_next_item()
     local copilot_keys = vim.fn["copilot#Accept"]()
     if copilot_keys ~= "" then
       vim.api.nvim_feedkeys(copilot_keys, "i", true)
     else
       fallback()
     end
-  --end
+  -- end
 end
 
 lvim.builtin.project.manual_mode = true

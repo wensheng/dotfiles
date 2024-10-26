@@ -12,6 +12,8 @@
 	cm = commit -m
 	ca = commit --amend
 	st = status
+    di = diff
+    dif = diff
 	br = branch
 	df = difftool --tool=vimdiff
 	ls = log --oneline
@@ -46,3 +48,5 @@
 	helper = store
 [init]
 	defaultBranch = master
+[pull]
+	rebase = false
