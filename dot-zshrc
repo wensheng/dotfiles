@@ -1,7 +1,7 @@
 if [[ $OSTYPE == linux* ]]; then
   export ZSH="/home/wensheng/.oh-my-zsh"
 else
-  export ZSH="/Users/wensheng/.oh-my-zsh"
+  export ZSH="/Users/wwang1/.oh-my-zsh"
 fi
 ZSH_THEME="wensheng"
 CASE_SENSITIVE="true"
@@ -14,7 +14,6 @@ plugins=(
   z
   zsh-autosuggestions
 )
-source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 #export PATH=$HOME/.local/bin:$PATH
 unsetopt no_match
@@ -29,5 +28,6 @@ if [[ $OSTYPE == linux* ]]; then
 else
         source ~/.sh_mac
 fi
+source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME=/opt/apache-maven-3.8.5
 export PATH=$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$HOME/.volta/bin:$PATH
