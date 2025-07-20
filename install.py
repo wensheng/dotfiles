@@ -49,8 +49,8 @@ for dotfile in dotfiles:
 
 # os.symlink(f'{cur_dir}/dot-config/lvim/config.lua', f'{os.getenv("HOME")}/.config/lvim/config.lua')
 
+os.system("mkdir -p ~/.config")
 dotconfigs = [
-  'lvim',
   'kitty',
 ]
 
