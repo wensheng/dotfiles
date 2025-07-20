@@ -30,4 +30,14 @@ else
 fi
 source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME=/opt/apache-maven-3.8.5
-export PATH=$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$HOME/.volta/bin:$PATH
+export PATH=$HOME/bin:/opt/nvim-linux-x86_64/bin:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$PATH
+
+. "$HOME/.cargo/env"
+source $HOME/.cargo/env
+
+# fnm
+FNM_PATH="/home/wensheng/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/wensheng/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
