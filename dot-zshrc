@@ -2,7 +2,7 @@ export ZSH_DISABLE_COMPFIX=true
 if [[ $OSTYPE == linux* ]]; then
   export ZSH="/home/wensheng/.oh-my-zsh"
 else
-  export ZSH="/Users/wensheng/.oh-my-zsh"
+  export ZSH="/Users/wwang1/.oh-my-zsh"
 fi
 ZSH_THEME="wensheng"
 CASE_SENSITIVE="true"
@@ -34,9 +34,13 @@ if [[ $OSTYPE == linux* ]]; then
 else
         source ~/.sh_mac
 fi
+source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME=/opt/apache-maven-3.8.5
 export CUDA_HOME=/usr/local/cuda
 export PATH=$CUDA_HOME/bin:$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$PATH
+
+. "$HOME/.cargo/env"
+source $HOME/.cargo/env
 
 # fnm
 FNM_PATH="/home/wensheng/.local/share/fnm"

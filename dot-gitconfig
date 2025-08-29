@@ -1,48 +1,53 @@
 [core]
     # without this utf8 filename will be shown as quoted codes
     quotepath = false
+    editor = vim
 
 [user]
-	email = wenshengwang@gmail.com
-	name = Wensheng Wang
+    email = wenshengwang@gmail.com
+    name = Wensheng Wang
 
 [alias]
-	ci = commit
-	co = checkout
-	cm = commit -m
-	ca = commit --amend
-	st = status
-	br = branch
-	df = difftool --tool=vimdiff
-	ls = log --oneline
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	# amend the last commit with everything uncommitted and new
-	caa = commit -a --amend -C HEAD
+    ci = commit
+    co = checkout
+    cm = commit -m
+    ca = commit --amend
+    st = status
+    di = diff
+    dif = diff
+    br = branch
+    df = difftool --tool=vimdiff
+    ls = log --oneline
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    # amend the last commit with everything uncommitted and new
+    caa = commit -a --amend -C HEAD
     ru = config --get remote.origin.url
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+    branch = auto
+    diff = auto
+    status = auto
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [push]
-	default = simple
+    default = simple
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
 [gc]
-	auto = 0
+    auto = 0
 [credential]
-	helper = store
+    helper = store
 [init]
-	defaultBranch = master
+    defaultBranch = master
+[pull]
+    rebase = false
