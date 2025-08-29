@@ -1,1 +1,2 @@
+skip_global_compinit=1
 export PATH=$HOME/.local/bin:/usr/local/go/bin:$HOME/.cargo/bin:$PATH
