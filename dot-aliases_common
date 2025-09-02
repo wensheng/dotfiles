@@ -14,5 +14,4 @@ alias vO='vim -O'
 alias s='git status'
 alias jn='pass edit journal/$(date "+%Y-%m-%d")'
 alias pg='pygmentize -O style=one-dark -f terminal256'
-alias lv=lvim
 alias lg=lazygit

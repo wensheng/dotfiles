@@ -1,3 +1,4 @@
+export ZSH_DISABLE_COMPFIX=true
 if [[ $OSTYPE == linux* ]]; then
   export ZSH="/home/wensheng/.oh-my-zsh"
 else
@@ -14,8 +15,13 @@ plugins=(
   z
   zsh-autosuggestions
 )
+source $ZSH/oh-my-zsh.sh
+#autoload -Uz compinit && compinit
+#source ~/.zsh/hashcmd-complete.zsh
+## after loading the plugin
+#ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export GOPATH=$HOME/go
-#export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 unsetopt no_match
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
@@ -30,4 +36,15 @@ else
 fi
 source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME=/opt/apache-maven-3.8.5
-export PATH=$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$HOME/.volta/bin:$PATH
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$PATH
+
+. "$HOME/.cargo/env"
+source $HOME/.cargo/env
+
+# fnm
+FNM_PATH="/home/wensheng/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/wensheng/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

@@ -1,4 +1,6 @@
 alias dir='ls -lrt'
 alias df='df -HT'
-alias vi='lvim'
-
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+alias vi='nvim'
+alias mm=micromamba
+alias cinit='eval "$(/home/wensheng/miniconda3/bin/conda shell.zsh hook)" && conda init'
