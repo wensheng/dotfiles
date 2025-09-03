@@ -1,19 +1,18 @@
 export ZSH_DISABLE_COMPFIX=true
-if [[ $OSTYPE == linux* ]]; then
-  export ZSH="/home/wensheng/.oh-my-zsh"
-else
-  export ZSH="/Users/wwang1/.oh-my-zsh"
-fi
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="wensheng"
 CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
+DISABLE_COMPIFX="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 plugins=(
   gitfast
   python
   tmux
   z
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 #autoload -Uz compinit && compinit
@@ -43,9 +42,9 @@ export PATH=$CUDA_HOME/bin:$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN
 source $HOME/.cargo/env
 
 # fnm
-FNM_PATH="/home/wensheng/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/wensheng/.local/share/fnm:$PATH"
+  export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
 
@@ -63,3 +62,13 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+## Set up fzf key bindings and fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/home/wensh/.bun/_bun" ] && source "/home/wensh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

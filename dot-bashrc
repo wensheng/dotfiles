@@ -112,5 +112,5 @@ export NCURSES_NO_UTF8_ACS=1
 export PATH="/home/wensheng/anaconda3/bin:$PATH"
 source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
