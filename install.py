@@ -52,6 +52,7 @@ for dotfile in dotfiles:
 os.system("mkdir -p ~/.config")
 dotconfigs = [
   'kitty',
+  'nvim',
 ]
 
 for dotconfig in dotconfigs:
