@@ -6,11 +6,7 @@
     "lazyvim.plugins.extras.editor.fzf",
     "lazyvim.plugins.extras.lang.clojure",
     "lazyvim.plugins.extras.lang.docker",
-    "lazyvim.plugins.extras.lang.go",
-    "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.json",
-    "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.lang.php",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.sql",
@@ -23,7 +19,7 @@
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "11866"
   },
   "version": 8
 }
