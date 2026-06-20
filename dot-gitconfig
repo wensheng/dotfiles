@@ -8,11 +8,13 @@
     name = Wensheng Wang
 
 [alias]
-    ci = commit
-    co = checkout
-    cm = commit -m
-    ca = commit --amend
-    st = status
+    p = pull
+    m = merge
+	ci = commit
+	co = checkout
+	cm = commit -m
+	ca = commit --amend
+	st = status
     di = diff
     dif = diff
     br = branch

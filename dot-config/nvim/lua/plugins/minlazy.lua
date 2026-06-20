@@ -19,4 +19,8 @@ return {
   { "rafamadriz/friendly-snippets", enabled = false },
   { "folke/trouble.nvim", enabled = false },
   { "folke/noice.nvim", enabled = false },
+  -- { "williamboman/mason.nvim", enabled = false },
+  -- { "williamboman/mason-lspconfig.nvim", enabled = false },
+  { "folke/dashboard-nvim", enabled = false },
+  { "folke/ts-comments.nvim", enabled = false },
 }

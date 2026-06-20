@@ -18,9 +18,7 @@ source $ZSH/oh-my-zsh.sh
 #autoload -Uz compinit && compinit
 #source ~/.zsh/hashcmd-complete.zsh
 ## after loading the plugin
-#ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export GOPATH=$HOME/go
-export PATH=$HOME/.local/bin:$PATH
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 unsetopt no_match
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
@@ -28,47 +26,16 @@ bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
 setopt nosharehistory
 source ~/.aliases_common
-if [[ $OSTYPE == linux* ]]; then
-        source ~/.sh_linux
+if [[ $OSTYPE == darwin* ]]; then
+    source ~/.sh_mac
 else
-        source ~/.sh_mac
+    source ~/.sh_linux
 fi
-source $ZSH/oh-my-zsh.sh
 export MAVEN_HOME=/opt/apache-maven-3.8.5
 export CUDA_HOME=/usr/local/cuda
-export PATH=$CUDA_HOME/bin:$HOME/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$MAVEN_HOME/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$CUDA_HOME/bin:$HOME/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$MAVEN_HOME/bin:$PATH
 
-. "$HOME/.cargo/env"
-source $HOME/.cargo/env
-
-# fnm
-FNM_PATH="$HOME/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
+if [ -e "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/wensheng/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/wensheng/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/wensheng/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/wensheng/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-## Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# bun completions
-[ -s "/home/wensh/.bun/_bun" ] && source "/home/wensh/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
