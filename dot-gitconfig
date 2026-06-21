@@ -20,6 +20,7 @@
     br = branch
     df = difftool --tool=vimdiff
     ls = log --oneline
+    sup = submodule update
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     # amend the last commit with everything uncommitted and new
     caa = commit -a --amend -C HEAD
@@ -53,3 +54,5 @@
     defaultBranch = master
 [pull]
     rebase = false
+[safe]
+	directory = *
